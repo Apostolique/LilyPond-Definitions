@@ -1,11 +1,6 @@
 \include "articulate.ly"
 
 \header {
-  composer = "Jean-David Moisan"
-  copyright = \markup \fontsize #-5
-  {
-    Copyright © 2021 Jean-David Moisan.
-  }
   tagline = ##f
 }
 
@@ -49,6 +44,11 @@ create-publish = #(define-void-function (parser location piano-music midi-music 
         \pointAndClickOff
         \header {
           title = \markup { \title }
+          composer = \author
+          copyright = \markup \fontsize #-5
+          {
+            Copyright © \year \author.
+          }
         }
         \score {
           #piano-music
@@ -90,6 +90,11 @@ create-debug = #(define-void-function (parser location piano-music measures-per-
         \bookOutputSuffix "debug"
         \header {
           title = \markup { \title " - debug" }
+          composer = \author
+          copyright = \markup \fontsize #-5
+          {
+            Copyright © \year \author.
+          }
         }
         \score {
           #piano-music

@@ -2,6 +2,13 @@
 \include "../definitions.ly"
 
 title = "Template"
+author = "NoName"
+year = "2021"
+
+% Remove this when you have enough systems.
+\paper {
+  ragged-last-bottom = ##t
+}
 
 % You can pass a list to control how many measures to have per system:
 % measures-per-system = #'(3 2 3 2 2 3)
@@ -34,11 +41,6 @@ pedal = {
 }
 
 pedalMidi = {
-}
-
-% Remove this when you have enough systems.
-\paper {
-  ragged-last-bottom = ##t
 }
 
 piano-music = \create-piano-staff
