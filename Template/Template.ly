@@ -24,13 +24,13 @@ global = {
 right = \relative c' {
   \clef "treble"
 
-  c4 d e f                        | % m. 01
+  c4 d e f
 }
 
 left = \relative c, {
   \clef "bass"
 
-  c'4 d e f                       | % m. 01
+  c'4 d e f
 }
 
 dynamics = {
