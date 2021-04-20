@@ -31,8 +31,8 @@ create-midi = #(define-scheme-function (parser location) ()
     \unfoldRepeats \articulate
       \new PianoStaff = "pianostaff" <<
         \new Dynamics = "dynamics" \dynamics
-        \new Dynamics = "pedal" \pedalMidi
-        \new Staff = "lr" << \global \right \left \dynamics \pedalMidi >>
+        \new Dynamics = "pedal" \pedal-midi
+        \new Staff = "lr" << \global \right \left \dynamics \pedal-midi >>
       >>
   #}
 )
@@ -116,6 +116,7 @@ rit = \once {\override TextSpanner.outside-staff-priority = #250 \override TextS
 molto-rit = \once {\override TextSpanner.outside-staff-priority = #250 \override TextSpanner.bound-details.left.text = "molto rit."}
 ritStart = \startTextSpan
 ritEnd = \stopTextSpan
+atempo = \tempo \markup \normal-text \italic "a tempo"
 
 #(define ((bars-per-line-engraver bar-list) context)
   (let* ((working-copy bar-list)

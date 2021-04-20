@@ -40,7 +40,7 @@ pedal = {
   \set Dynamics.pedalSustainStyle = #'mixed
 }
 
-pedalMidi = {
+pedal-midi = {
 }
 
 piano-music = \create-piano-staff
