@@ -14,6 +14,16 @@
   last-bottom-spacing.padding = 3
 }
 
+sOn = \sustainOn
+sOff = \sustainOff
+simile = \markup\fontsize #-2 {simile}
+rit = \once {\override TextSpanner.outside-staff-priority = #250 \override TextSpanner.bound-details.left.text = "rit."}
+molto-rit = \once {\override TextSpanner.outside-staff-priority = #250 \override TextSpanner.bound-details.left.text = "molto rit."}
+ritStart = \startTextSpan
+ritEnd = \stopTextSpan
+atempo = \tempo \markup \normal-text \italic "a tempo"
+
+% Could be useful if the sheet is meant to be read on a computer screen.
 % #(set-global-staff-size 23)
 
 create-piano-staff = #(define-scheme-function (parser location) ()
@@ -108,15 +118,6 @@ create-debug = #(define-void-function (parser location piano-music measures-per-
       }
     #}
   ))
-
-sOn = \sustainOn
-sOff = \sustainOff
-simile = \markup\fontsize #-2 {simile}
-rit = \once {\override TextSpanner.outside-staff-priority = #250 \override TextSpanner.bound-details.left.text = "rit."}
-molto-rit = \once {\override TextSpanner.outside-staff-priority = #250 \override TextSpanner.bound-details.left.text = "molto rit."}
-ritStart = \startTextSpan
-ritEnd = \stopTextSpan
-atempo = \tempo \markup \normal-text \italic "a tempo"
 
 #(define ((bars-per-line-engraver bar-list) context)
   (let* ((working-copy bar-list)
