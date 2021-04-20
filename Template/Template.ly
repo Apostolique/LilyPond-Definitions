@@ -43,8 +43,8 @@ pedal = {
 pedal-midi = {
 }
 
-piano-music = \create-piano-staff
-music-midi = \create-midi
+piano-music = \create-piano-staff \global \left \right \dynamics \pedal
+music-midi = \create-midi \global \left \right \dynamics \pedal-midi
 
 \create-publish \piano-music \music-midi \measures-per-system
 \create-debug \piano-music \measures-per-system

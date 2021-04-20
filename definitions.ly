@@ -26,23 +26,23 @@ atempo = \tempo \markup \normal-text \italic "a tempo"
 % Could be useful if the sheet is meant to be read on a computer screen.
 % #(set-global-staff-size 23)
 
-create-piano-staff = #(define-scheme-function (parser location) ()
+create-piano-staff = #(define-scheme-function (parser location global left right dynamics pedal) (ly:music? ly:music? ly:music? ly:music? ly:music?)
   #{
     \new PianoStaff = "pianostaff" <<
-      \new Staff = "RH" << \global \right >>
-      \new Dynamics = "dynamics" \dynamics
-      \new Staff = "LH" << \global \left >>
-      \new Dynamics = "pedal" \pedal
+      \new Staff = "RH" << #global #right >>
+      \new Dynamics = "dynamics" << #dynamics >>
+      \new Staff = "LH" << #global #left >>
+      \new Dynamics = "pedal" << #pedal >>
     >>
   #}
 )
-create-midi = #(define-scheme-function (parser location) ()
+create-midi = #(define-scheme-function (parser location global left right dynamics pedal) (ly:music? ly:music? ly:music? ly:music? ly:music?)
   #{
     \unfoldRepeats \articulate
       \new PianoStaff = "pianostaff" <<
-        \new Dynamics = "dynamics" \dynamics
-        \new Dynamics = "pedal" \pedal-midi
-        \new Staff = "lr" << \global \right \left \dynamics \pedal-midi >>
+        \new Dynamics = "dynamics" << #dynamics >>
+        \new Dynamics = "pedal" << #pedal >>
+        \new Staff = "lr" << #global #right #left #dynamics #pedal >>
       >>
   #}
 )
